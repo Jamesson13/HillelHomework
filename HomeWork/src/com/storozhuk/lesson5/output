@@ -1,0 +1,31 @@
+Students list:
+Student{id=0, surname='Петров', name='Пётр', patronymic='Петрович', yearOfBirth=2001, address='Одесса', phoneNumber='(012)1234567', faculty='ИИБРТ', course='2', group='РЕ-201'}
+Student{id=1, surname='Иванов', name='Иван', patronymic='Иванович', yearOfBirth=1998, address='Херсон', phoneNumber='(012)2345678', faculty='ИИБРТ', course='2', group='РЕ-201'}
+Student{id=2, surname='Гений', name='Геннадий', patronymic='Генадъевич', yearOfBirth=1997, address='Запорожье', phoneNumber='(012)3456789', faculty='ИИБРТ', course='3', group='РЕ-202'}
+Student{id=3, surname='Михайлов', name='Михаил', patronymic='Михайлович', yearOfBirth=2002, address='Николаев', phoneNumber='(012)4567890', faculty='ИКС', course='1', group='КА-211'}
+Student{id=4, surname='Андрейченко', name='Андрей', patronymic='Андреевич', yearOfBirth=1999, address='Днепропетровск', phoneNumber='(012)5678901', faculty='ИКС', course='3', group='КА-191'}
+Student{id=5, surname='Александров', name='Александр', patronymic='Александрович', yearOfBirth=2001, address='Кировоград', phoneNumber='(012)6789012', faculty='ИКС', course='2', group='КА-201'}
+Student{id=6, surname='Владимиров', name='Владимир', patronymic='Владимирович', yearOfBirth=2000, address='Винница', phoneNumber='(012)7890123', faculty='ИИИР', course='2', group='ИР-201'}
+Student{id=7, surname='Викторов', name='Виктор', patronymic='Викторович', yearOfBirth=1996, address='Полтава', phoneNumber='(012)8901234', faculty='ИИИР', course='4', group='ИР-181'}
+Student{id=8, surname='Юрченко', name='Юрий', patronymic='Юрьевич', yearOfBirth=1999, address='Киев', phoneNumber='(012)9012345', faculty='ИИИР', course='2', group='ИР-201'}
+
+Students from ИКС:
+Student{id=3, surname='Михайлов', name='Михаил', patronymic='Михайлович', yearOfBirth=2002, address='Николаев', phoneNumber='(012)4567890', faculty='ИКС', course='1', group='КА-211'}
+Student{id=4, surname='Андрейченко', name='Андрей', patronymic='Андреевич', yearOfBirth=1999, address='Днепропетровск', phoneNumber='(012)5678901', faculty='ИКС', course='3', group='КА-191'}
+Student{id=5, surname='Александров', name='Александр', patronymic='Александрович', yearOfBirth=2001, address='Кировоград', phoneNumber='(012)6789012', faculty='ИКС', course='2', group='КА-201'}
+
+Students from 2 course of ИИБРТ:
+Student{id=0, surname='Петров', name='Пётр', patronymic='Петрович', yearOfBirth=2001, address='Одесса', phoneNumber='(012)1234567', faculty='ИИБРТ', course='2', group='РЕ-201'}
+Student{id=1, surname='Иванов', name='Иван', patronymic='Иванович', yearOfBirth=1998, address='Херсон', phoneNumber='(012)2345678', faculty='ИИБРТ', course='2', group='РЕ-201'}
+
+Students with birth after 1999:
+Student{id=0, surname='Петров', name='Пётр', patronymic='Петрович', yearOfBirth=2001, address='Одесса', phoneNumber='(012)1234567', faculty='ИИБРТ', course='2', group='РЕ-201'}
+Student{id=3, surname='Михайлов', name='Михаил', patronymic='Михайлович', yearOfBirth=2002, address='Николаев', phoneNumber='(012)4567890', faculty='ИКС', course='1', group='КА-211'}
+Student{id=5, surname='Александров', name='Александр', patronymic='Александрович', yearOfBirth=2001, address='Кировоград', phoneNumber='(012)6789012', faculty='ИКС', course='2', group='КА-201'}
+Student{id=6, surname='Владимиров', name='Владимир', patronymic='Владимирович', yearOfBirth=2000, address='Винница', phoneNumber='(012)7890123', faculty='ИИИР', course='2', group='ИР-201'}
+
+Students from РЕ-201:
+Student{id=0, surname='Петров', name='Пётр', patronymic='Петрович', yearOfBirth=2001, address='Одесса', phoneNumber='(012)1234567', faculty='ИИБРТ', course='2', group='РЕ-201'}
+Student{id=1, surname='Иванов', name='Иван', patronymic='Иванович', yearOfBirth=1998, address='Херсон', phoneNumber='(012)2345678', faculty='ИИБРТ', course='2', group='РЕ-201'}
+
+Process finished with exit code 0
