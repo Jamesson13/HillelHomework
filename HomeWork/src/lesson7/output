@@ -1,0 +1,20 @@
+Empty collection (base size = 4):
+Elements=0 | Capacity=4
+StringCollection{arr=[null, null, null, null]}
+
+Adding 7 strings: add, add, add[0], add[5], add[2], add[1], add[1]
+true|true|true|false|true|true|true
+Elements=6 | Capacity=8
+StringCollection{arr=[string2, string6, string5, string0, string4, string1, null, null]}
+
+Removing 5 strings: del[2], del(string1), del[10], del(badstring), del[0]
+true|true|false|false|true
+Elements=3 | Capacity=8
+StringCollection{arr=[string6, string0, string4, null, null, null, null, null]}
+
+Getting 3 string: get[2], get[8], get[0]
+string4
+null
+string6
+
+Process finished with exit code 0
