@@ -1,0 +1,59 @@
+Empty collections:
+[] Size:0
+[] Size:0
+[] Size:0
+
+list1.add(q)=true
+list1.add(w)=true
+list1.add(e)=true
+list1.add(r)=true
+list2.add([q, w, e, r, t])=true
+list3.add(list1)=true
+
+Collections:
+[q,w,e,r] Size:4
+[q,w,e,r,t] Size:5
+[q,w,e,r] Size:4
+
+list1.delete(0)=true
+list1.delete(8)=false
+list1.delete(2)=true
+
+list2.delete(v)=false
+list2.delete(q)=true
+list2.delete(t)=true
+
+list3.get(0)=q
+list3.get(9)=null
+list3.get(2)=e
+
+Collections:
+[w,e] Size:2
+[w,e,r] Size:3
+[q,w,e,r] Size:4
+
+list1.add(r)=true
+list2.trim()=true
+list3.contains(e)=true
+list3.contains(x)=false
+list3.clear()=true
+
+Collections:
+[w,e,r] Size:3
+[w,e,r] Size:3
+[] Size:0
+
+list1.compare(list2)=true
+list2.compare(list3)=false
+list3.compare(list1)=false
+
+list1.add(z)=true
+list2.add(x)=true
+list3.add(c)=true
+
+Collections:
+[w,e,r,z] Size:4
+[w,e,r,x] Size:4
+[c] Size:1
+
+Process finished with exit code 0
