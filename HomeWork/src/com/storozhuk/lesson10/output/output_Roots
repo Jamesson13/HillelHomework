@@ -1,0 +1,21 @@
+Task3. Quadratic equation:
+
+Enter a, b, c for equation ax2+bx+c=0 :
+a=5
+b=3
+c=7
+Result: null
+
+Enter a, b, c for equation ax2+bx+c=0 :
+a=1
+b=-6
+c=9
+Result: [3.0]
+
+Enter a, b, c for equation ax2+bx+c=0 :
+a=1
+b=-8
+c=12
+Result: [6.0, 2.0]
+
+Process finished with exit code 0
