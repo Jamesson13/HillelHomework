@@ -1,6 +1,6 @@
-package com.storozhuk.lesson8.service.impl;
+package lesson8.service.impl;
 
-import com.storozhuk.lesson8.service.Collection;
+import lesson8.service.Collection;
 
 import java.util.Arrays;
 
@@ -24,11 +24,6 @@ public class StringCollection implements Collection {
 
     public StringCollection() {
         this(10);
-    }
-
-    /* Get length of array  */
-    public int getCapacity() {
-        return this.arr.length;
     }
 
     @Override
@@ -105,7 +100,7 @@ public class StringCollection implements Collection {
     public Object get(int index) {
         /* check input */
         if(index < 0 || index >= this.elements) {
-            return null;
+            throw new IndexOutOfBoundsException("No such object with index: " + index);
         }
         return this.arr[index];
     }

@@ -1,4 +1,4 @@
-package com.storozhuk.lesson8.service;
+package lesson8.service;
 
 public interface Collection {
     boolean add(Object o);
