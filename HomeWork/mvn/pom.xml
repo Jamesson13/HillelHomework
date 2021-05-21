@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>storozhuk</groupId>
-    <artifactId>HW14</artifactId>
+    <artifactId>HW16</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -72,7 +72,7 @@
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>lesson14.GraphicGenerator</mainClass>
+                                <mainClass>lesson16.Game</mainClass>
                             </manifest>
                         </archive>
                     </configuration>
