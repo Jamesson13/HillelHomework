@@ -22,7 +22,7 @@ public class Game {
         int totalGames;
         int playerInput, pcInput;
 
-        // set name and games count from console input
+        // set name and game rounds count from console input
         System.out.println("You're playing \"Rock, scissors and paper\" game.\n");
         System.out.print("Enter your name:");
         player = new Player(sc.next());
@@ -48,7 +48,7 @@ public class Game {
                     GameService.play(player, Items.values()[playerInput-1], pc, Items.values()[pcInput]));
         }
 
-        // get results
+        // show results
         System.out.printf("\nGame finished! Scores:\n%s: %d\n%s: %d\nWinner: %s\n",
                 player.getName(), player.getScore(),
                 pc.getName(), pc.getScore(),
