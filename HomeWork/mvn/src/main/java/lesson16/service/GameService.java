@@ -17,18 +17,19 @@ import static lesson16.utils.ScannerController.scanCorrectIntValue;
  * and static method play().
  */
 public class GameService {
-    int totalRounds;
-    Player pc;
-    Player player;
+    protected int totalRounds;
+    protected int playedRounds;
+    protected Player pc;
+    protected Player player;
 
-    private final static RoundStatus[][] result = new RoundStatus[][] {
+    protected final static RoundStatus[][] result = new RoundStatus[][] {
             {DRAW, WIN, LOSE},
             {LOSE, DRAW, WIN},
             {WIN, LOSE, DRAW}
     };
 
     /* Method to play one game round and return result for the first player */
-    private RoundStatus playRound(Items i1, Items i2) {
+    protected RoundStatus playRound(Items i1, Items i2) {
         switch (result[i1.ordinal()][i2.ordinal()]) {
             case WIN -> player.setScore(player.getScore()+1);
             case LOSE -> pc.setScore(pc.getScore()+1);
@@ -37,7 +38,7 @@ public class GameService {
     }
 
     /* Set player's name and game rounds count from console input */
-    private void configure() {
+    protected void configure() {
         System.out.print("Enter your name:");
         player = new Player(new Scanner(System.in).next());
         pc = new Player("PC");
@@ -46,7 +47,7 @@ public class GameService {
     }
 
     /* Show players stats */
-    private void showResults() {
+    protected void showResults() {
         System.out.printf("\nGame finished! Scores:\n%s: %d\n%s: %d\nWinner: %s\n",
                 player.getName(), player.getScore(),
                 pc.getName(), pc.getScore(),
@@ -62,7 +63,7 @@ public class GameService {
         this.configure();
 
         System.out.println("Game started!");
-        for(int i = 0; i < totalRounds; i++) {
+        for(playedRounds = 0; playedRounds < totalRounds; playedRounds++) {
             // get input from console
             playerInput = scanCorrectIntValue(0, 3,
                     "\n1-Rock, 2-Scissors, 3-Paper\n0-End the game\nYour turn:");
