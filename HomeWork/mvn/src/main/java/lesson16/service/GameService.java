@@ -4,7 +4,11 @@ import lesson16.service.dto.Player;
 import lesson16.service.dto.types.Items;
 import lesson16.service.dto.types.RoundStatus;
 
+import java.util.Scanner;
+
 import static lesson16.service.dto.types.RoundStatus.*;
+import static lesson16.utils.RandomGenerator.getRandomInt;
+import static lesson16.utils.ScannerController.scanCorrectIntValue;
 
 /**
  * Class GameService
@@ -13,18 +17,69 @@ import static lesson16.service.dto.types.RoundStatus.*;
  * and static method play().
  */
 public class GameService {
+    int totalRounds;
+    Player pc;
+    Player player;
+
     private final static RoundStatus[][] result = new RoundStatus[][] {
             {DRAW, WIN, LOSE},
             {LOSE, DRAW, WIN},
             {WIN, LOSE, DRAW}
     };
 
-    /* Method to play one game round and return result for Player p1 */
-    public static RoundStatus play(Player p1, Items i1, Player p2, Items i2) {
+    /* Method to play one game round and return result for the first player */
+    private RoundStatus playRound(Items i1, Items i2) {
         switch (result[i1.ordinal()][i2.ordinal()]) {
-            case WIN -> p1.setScore(p1.getScore()+1);
-            case LOSE -> p2.setScore(p2.getScore()+1);
+            case WIN -> player.setScore(player.getScore()+1);
+            case LOSE -> pc.setScore(pc.getScore()+1);
         }
         return result[i1.ordinal()][i2.ordinal()];
+    }
+
+    /* Set player's name and game rounds count from console input */
+    private void configure() {
+        System.out.print("Enter your name:");
+        player = new Player(new Scanner(System.in).next());
+        pc = new Player("PC");
+
+        this.totalRounds = scanCorrectIntValue(0, 100, "Enter number of games you want to play");
+    }
+
+    /* Show players stats */
+    private void showResults() {
+        System.out.printf("\nGame finished! Scores:\n%s: %d\n%s: %d\nWinner: %s\n",
+                player.getName(), player.getScore(),
+                pc.getName(), pc.getScore(),
+                player.getScore()==pc.getScore()?"none": // draw
+                        player.getScore()>pc.getScore()?player.getName():pc.getName());
+    }
+
+    /* Play the game */
+    public void play() {
+        int playerInput, pcInput;
+
+        System.out.println("You're playing \"Rock, scissors and paper\" game.\n");
+        this.configure();
+
+        System.out.println("Game started!");
+        for(int i = 0; i < totalRounds; i++) {
+            // get input from console
+            playerInput = scanCorrectIntValue(0, 3,
+                    "\n1-Rock, 2-Scissors, 3-Paper\n0-End the game\nYour turn:");
+
+            // leave game if needed
+            if(playerInput == 0) {
+                break;
+            }
+
+            // play game round and show info
+            pcInput = getRandomInt(0,2);
+            System.out.printf("%s:%s %s:%s Round:%s\n",
+                    player.getName(), Items.values()[playerInput-1],
+                    pc.getName(), Items.values()[pcInput],
+                    playRound(Items.values()[playerInput-1], Items.values()[pcInput]));
+        }
+
+        this.showResults();
     }
 }

@@ -8,17 +8,19 @@ import java.util.Scanner;
  * Contains methods to check correct input from Scanner.
  */
 public class ScannerController {
-    public static int scanCorrectIntValue(Scanner s, int minVal, int maxVal, String preInputMsg) {
+    private final static Scanner sc = new Scanner(System.in);
+
+    public static int scanCorrectIntValue(int minVal, int maxVal, String preInputMsg) {
         int tmp;
         do {
             System.out.print(preInputMsg + "(" + minVal + "-" + maxVal + "):");
-            if(s.hasNextInt()) {
-                tmp = s.nextInt();
+            if(sc.hasNextInt()) {
+                tmp = sc.nextInt();
                 if(tmp >= minVal && tmp <= maxVal) { // leave infinite loop if correct value
                     break;
                 }
             } else { // bad input
-                s.next();
+                sc.next();
             }
             System.out.println("Bad input! Try again!");
         }
