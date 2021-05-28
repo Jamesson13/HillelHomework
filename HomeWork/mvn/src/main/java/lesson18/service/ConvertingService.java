@@ -122,15 +122,15 @@ public class ConvertingService {
     private static String statusString(boolean convertingStatus, String srcPath, String dstPath, String srcFile, String dstFile, long convTime) {
         return  convertingStatus
                 ?srcFile +
-                " -> " +
-                dstFile +
-                ", " +
-                convTime +
-                "ms, " +
-                FileUtils.fileSize(srcPath) +
-                "bytes -> " +
-                FileUtils.fileSize(dstPath) +
-                "bytes"
+                        " -> " +
+                        dstFile +
+                        ", " +
+                        convTime +
+                        "ms, " +
+                        FileUtils.fileSize(srcPath) +
+                        "bytes -> " +
+                        FileUtils.fileSize(dstPath) +
+                        "bytes"
                 :srcFile + " -> not converted";
     }
 }
