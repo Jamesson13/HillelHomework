@@ -2,6 +2,7 @@ package lesson18.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import lesson18.util.FileUtils;
 import org.yaml.snakeyaml.Yaml;
@@ -45,6 +46,7 @@ public class ConvertingService {
 
     private static int convert (String srcDir, String dstDir) {
         int convertedCnt = 0;
+        boolean convertingStatus;
         long startTime;
         String statusStr;
         String dstFile;
@@ -59,22 +61,26 @@ public class ConvertingService {
                 case "yaml" -> {
                     dstFile = FileUtils.fileName(file).concat(".json");
                     dstPath = dstDir.concat(File.separator).concat(dstFile); // make destination file path
-                    yamlToJson(srcPath, dstPath);
-                    statusStr = statusString(srcPath, dstPath, file, dstFile,
+                    convertingStatus = yamlToJson(srcPath, dstPath);
+                    statusStr = statusString(convertingStatus, srcPath, dstPath, file, dstFile,
                             System.currentTimeMillis() - startTime); // make status string
                     System.out.println(statusStr);
                     log.appendLine(statusStr);
-                    convertedCnt++;
+                    if (convertingStatus) {
+                        convertedCnt++; // iterate counter
+                    }
                 }
                 case "json" -> {
                     dstFile = FileUtils.fileName(file).concat(".yaml");
                     dstPath = dstDir.concat(File.separator).concat(dstFile); // make destination file path
-                    jsonToYaml(srcPath, dstPath);
-                    statusStr = statusString(srcPath, dstPath, file, dstFile,
+                    convertingStatus = jsonToYaml(srcPath, dstPath);
+                    statusStr = statusString(convertingStatus, srcPath, dstPath, file, dstFile,
                             System.currentTimeMillis() - startTime); // make status string
                     System.out.println(statusStr);
                     log.appendLine(statusStr);
-                    convertedCnt++;
+                    if (convertingStatus) {
+                        convertedCnt++; // iterate counter
+                    }
                 }
             }
         }
@@ -88,24 +94,34 @@ public class ConvertingService {
     }
 
     private static boolean yamlToJson(String sourcePath, String destPath) {
-        GsonBuilder a = new GsonBuilder();
         String yamlStr = FileUtils.readToString(sourcePath);
-        Map<String, Object> objMap = new Yaml().load(yamlStr);
-        String jsonStr = a.setPrettyPrinting().create().toJson(objMap);
-        return FileUtils.writeToFile(destPath, jsonStr);
+        try {
+            Map<String, Object> objMap = new Yaml().load(yamlStr);
+            String jsonStr = new GsonBuilder().setPrettyPrinting().create().toJson(objMap);
+            return FileUtils.writeToFile(destPath, jsonStr);
+        } catch (JsonSyntaxException | ClassCastException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     private static boolean jsonToYaml(String sourcePath, String destPath) {
         String jsonStr = FileUtils.readToString(sourcePath);
-        Gson a = new Gson();
-        Map<String, Object> objMap = a.fromJson(jsonStr,
-                new TypeToken<Map<String, Object>>(){}.getType());
-        String yamlStr = new Yaml().dump(objMap);
-        return FileUtils.writeToFile(destPath, yamlStr);
+        try {
+            Map<String, Object> objMap = new Gson().fromJson(jsonStr,
+                    new TypeToken<Map<String, Object>>() {
+                    }.getType());
+            String yamlStr = new Yaml().dump(objMap);
+            return FileUtils.writeToFile(destPath, yamlStr);
+        } catch (JsonSyntaxException | ClassCastException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
-    private static String statusString(String srcPath, String dstPath, String srcFile, String dstFile, long convTime) {
-        return  srcFile +
+    private static String statusString(boolean convertingStatus, String srcPath, String dstPath, String srcFile, String dstFile, long convTime) {
+        return  convertingStatus
+                ?srcFile +
                 " -> " +
                 dstFile +
                 ", " +
@@ -114,6 +130,7 @@ public class ConvertingService {
                 FileUtils.fileSize(srcPath) +
                 "bytes -> " +
                 FileUtils.fileSize(dstPath) +
-                "bytes";
+                "bytes"
+                :srcFile + " -> not converted";
     }
 }
