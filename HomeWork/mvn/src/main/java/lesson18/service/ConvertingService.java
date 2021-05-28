@@ -3,7 +3,6 @@ package lesson18.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import lesson17.util.TimeUtils;
 import lesson18.util.FileUtils;
 import org.yaml.snakeyaml.Yaml;
 
@@ -50,7 +49,6 @@ public class ConvertingService {
         String statusStr;
         String dstFile;
         String srcPath, dstPath;
-        boolean convertingStatus;
         Logger log = new Logger();
 
         for(String file : FileUtils.listOfFiles(srcDir)) {
@@ -61,8 +59,8 @@ public class ConvertingService {
                 case "yaml" -> {
                     dstFile = FileUtils.fileName(file).concat(".json");
                     dstPath = dstDir.concat(File.separator).concat(dstFile); // make destination file path
-                    convertingStatus = yamlToJson(srcPath, dstPath);
-                    statusStr = statusString(srcPath, dstPath, convertingStatus,
+                    yamlToJson(srcPath, dstPath);
+                    statusStr = statusString(srcPath, dstPath, file, dstFile,
                             System.currentTimeMillis() - startTime); // make status string
                     System.out.println(statusStr);
                     log.appendLine(statusStr);
@@ -71,8 +69,8 @@ public class ConvertingService {
                 case "json" -> {
                     dstFile = FileUtils.fileName(file).concat(".yaml");
                     dstPath = dstDir.concat(File.separator).concat(dstFile); // make destination file path
-                    convertingStatus = jsonToYaml(srcPath, dstPath);
-                    statusStr = statusString(srcPath, dstPath, convertingStatus,
+                    jsonToYaml(srcPath, dstPath);
+                    statusStr = statusString(srcPath, dstPath, file, dstFile,
                             System.currentTimeMillis() - startTime); // make status string
                     System.out.println(statusStr);
                     log.appendLine(statusStr);
@@ -106,20 +104,16 @@ public class ConvertingService {
         return FileUtils.writeToFile(destPath, yamlStr);
     }
 
-    private static String statusString(String srcPath, String dstPath, boolean status, long convTime) {
-        return TimeUtils.timeStampExtended() +
-                " Input=" +
-                srcPath +
-                " Size=" +
-                FileUtils.fileSize(srcPath) +
-                "bytes Output=" +
-                dstPath +
-                " Size=" +
-                FileUtils.fileSize(dstPath) +
-                "bytes Converted=" +
-                status +
-                " Conversion time=" +
+    private static String statusString(String srcPath, String dstPath, String srcFile, String dstFile, long convTime) {
+        return  srcFile +
+                " -> " +
+                dstFile +
+                ", " +
                 convTime +
-                "ms";
+                "ms, " +
+                FileUtils.fileSize(srcPath) +
+                "bytes -> " +
+                FileUtils.fileSize(dstPath) +
+                "bytes";
     }
 }
