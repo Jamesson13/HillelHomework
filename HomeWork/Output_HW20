@@ -1,0 +1,42 @@
+[-Client---Transaction--Amount--Result-------Remained-----]
+Client_3 - REPLENISHMENT - 12529 Success! [Money remained=512529]
+Client_4 - WITHDRAWAL - 34015 Success! [Money remained=478514]
+Client_1 - WITHDRAWAL - 54831 Success! [Money remained=423683]
+Client_2 - WITHDRAWAL - 26137 Success! [Money remained=397546]
+Client_4 - WITHDRAWAL - 7657 Success! [Money remained=389889]
+Client_3 - WITHDRAWAL - 36488 Success! [Money remained=353401]
+Client_1 - REPLENISHMENT - 50085 Success! [Money remained=403486]
+Client_3 - WITHDRAWAL - 860 Success! [Money remained=402626]
+Client_4 - WITHDRAWAL - 23793 Success! [Money remained=378833]
+Client_2 - WITHDRAWAL - 26096 Success! [Money remained=352737]
+Client_3 - WITHDRAWAL - 27459 Success! [Money remained=325278]
+Client_4 - WITHDRAWAL - 26444 Success! [Money remained=298834]
+Client_1 - WITHDRAWAL - 50120 Success! [Money remained=248714]
+Client_3 - WITHDRAWAL - 41525 Success! [Money remained=207189]
+Client_2 - WITHDRAWAL - 32297 Success! [Money remained=174892]
+Client_4 - REPLENISHMENT - 17556 Success! [Money remained=192448]
+Client_3 - WITHDRAWAL - 10907 Success! [Money remained=181541]
+Client_4 - WITHDRAWAL - 9023 Success! [Money remained=172518]
+Client_2 - REPLENISHMENT - 16832 Success! [Money remained=189350]
+Client_3 - WITHDRAWAL - 37233 Success! [Money remained=152117]
+Client_1 - WITHDRAWAL - 57382 Success! [Money remained=94735]
+Client_3 - WITHDRAWAL - 24332 Success! [Money remained=70403]
+Client_4 - REPLENISHMENT - 794 Success! [Money remained=71197]
+Client_2 - WITHDRAWAL - 36902 Success! [Money remained=34295]
+Client_4 - WITHDRAWAL - 47222 Fail!
+Client_4 no longer interacts with ATM.
+Client_3 - WITHDRAWAL - 48437 Fail!
+Client_3 no longer interacts with ATM.
+Client_1 - REPLENISHMENT - 55401 Success! [Money remained=89696]
+Client_2 - WITHDRAWAL - 31480 Success! [Money remained=58216]
+Client_1 - REPLENISHMENT - 58293 Success! [Money remained=116509]
+Client_2 - REPLENISHMENT - 38761 Success! [Money remained=155270]
+Client_1 - WITHDRAWAL - 52302 Success! [Money remained=102968]
+Client_2 - WITHDRAWAL - 45242 Success! [Money remained=57726]
+Client_1 - WITHDRAWAL - 52670 Success! [Money remained=5056]
+Client_2 - WITHDRAWAL - 39193 Fail!
+Client_2 no longer interacts with ATM.
+Client_1 - WITHDRAWAL - 50661 Fail!
+Client_1 no longer interacts with ATM.
+
+Process finished with exit code 0
