@@ -1,0 +1,67 @@
+<configuration>
+    <timestamp key="bySecond" datePattern="yyyyMMddHHmmss"/>
+
+    <property name="GAMES_LOG_DIR" value="./log/GamesLog/" />
+    <property name="RES_LOG_DIR" value="./log/Results/" />
+    <property name="WARN_LOG_DIR" value="./log/" />
+
+    <appender name="GAMES" class="ch.qos.logback.core.FileAppender">
+        <file>${GAMES_LOG_DIR}/log_${player.name}_${bySecond}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %level %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RES" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${RES_LOG_DIR}/results.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %level %msg%n</pattern>
+        </encoder>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${RES_LOG_DIR}/results.%i.log.zip</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>10</MaxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>1MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <file>${WARN_LOG_DIR}/warn.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %level %msg%n</pattern>
+        </encoder>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${WARN_LOG_DIR}/warn.%i.log.zip</FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>10</MaxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>1MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <logger name="lesson24.log.results" level="info" additivity="true">
+        <appender-ref ref="RES" />
+    </logger>
+
+    <logger name="lesson24.log.games" level="debug" additivity="true">
+        <appender-ref ref="GAMES" />
+    </logger>
+
+    <root level="warn">
+        <appender-ref ref="WARN" />
+    </root>
+
+</configuration>
