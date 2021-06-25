@@ -17,12 +17,25 @@ public class ScannerController {
     public static int scanCorrectIntValue(int minVal, int maxVal, String preInputMsg) {
         int tmp;
         do {
-            System.out.print(preInputMsg + "(" + minVal + "-" + maxVal + "):");
+            System.out.print(preInputMsg + " (" + minVal + "-" + maxVal + "):");
             if(sc.hasNextInt()) {
                 tmp = sc.nextInt();
                 if(tmp >= minVal && tmp <= maxVal) { // leave infinite loop if correct value
                     return tmp;
                 }
+            } else { // bad input
+                sc.next();
+            }
+            System.out.println("Bad input! Try again!");
+        }
+        while(true);
+    }
+
+    public static int scanIntValue(String preInputMsg) {
+        do {
+            System.out.print(preInputMsg + ":");
+            if(sc.hasNextInt()) {
+                return sc.nextInt();
             } else { // bad input
                 sc.next();
             }
@@ -38,7 +51,7 @@ public class ScannerController {
             sc.nextLine();
         }
         do {
-            System.out.print(preInputMsg + "(maxLen=" + maxLen + "):");
+            System.out.print(preInputMsg + " (maxLen=" + maxLen + "):");
             tmp = sc.nextLine();
 
             if(tmp.length() <= maxLen) { // leave infinite loop if correct value

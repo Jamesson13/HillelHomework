@@ -1,4 +1,0 @@
-USE Student;
-
-ALTER TABLE Students
-ADD IsDeleted BOOLEAN DEFAULT FALSE NOT NULL;
