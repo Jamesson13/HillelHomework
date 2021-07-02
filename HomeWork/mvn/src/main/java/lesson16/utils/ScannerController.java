@@ -14,7 +14,7 @@ public class ScannerController {
     private static Logger resLogger;
     private static boolean logged = false;
 
-    public static int scanCorrectIntValue(int minVal, int maxVal, String preInputMsg) {
+    public static int scanCorrectIntValue(int minVal, int maxVal, String preInputMsg, String badInputMsg) {
         int tmp;
         String input;
         do {
@@ -28,7 +28,7 @@ public class ScannerController {
             } else { // bad input
                 input = sc.next();
             }
-            System.out.println("Bad input! Try again!");
+            System.out.println(badInputMsg);
             if(logged) {
                 resLogger.warn("Bad input! (Input: {}, Correct: {}...{})", input, minVal, maxVal);
             }

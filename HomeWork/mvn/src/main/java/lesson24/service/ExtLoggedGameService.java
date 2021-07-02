@@ -1,9 +1,9 @@
 package lesson24.service;
 
-import lesson16.service.GameService;
 import lesson16.service.dto.types.Items;
 import lesson16.service.dto.types.RoundStatus;
 import lesson16.utils.ScannerController;
+import lesson26.service.GameServiceLoc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
  *  - Game results                  /log/Results/results.log
  *  - All possible warnings         /log/warn.log
  */
-public class ExtLoggedGameService extends GameService {
+public class ExtLoggedGameService extends GameServiceLoc {
     private static Logger gamesLogger;
     private static Logger resLogger;
 

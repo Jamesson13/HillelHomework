@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>storozhuk</groupId>
-    <artifactId>HW24</artifactId>
+    <artifactId>HW26</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -21,7 +21,7 @@
                     <transformers>
                         <transformer implementation=
                                              "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>lesson24.Game</mainClass>
+                            <mainClass>lesson26.Game</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>
@@ -72,10 +72,5 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>${slf4j.version}</version>-->
-<!--        </dependency>-->
     </dependencies>
 </project>
