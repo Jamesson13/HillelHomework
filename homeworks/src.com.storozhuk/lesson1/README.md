@@ -1,4 +1,4 @@
-#Lesson 1
+### Lesson 1
 
 1. JDK, IDE, Git installation.
 2. First compiled application.
