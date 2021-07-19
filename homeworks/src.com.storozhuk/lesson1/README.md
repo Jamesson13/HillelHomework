@@ -1,5 +1,5 @@
 # HillelHomework
-## [Java Elementary Course (18-03-2021)](../../..)
+## [Java Elementary Course (18-03-2021)](/../..)
 ### Lesson 1
 
 1. [JDK, IDE, Git installation.](./Task1)
